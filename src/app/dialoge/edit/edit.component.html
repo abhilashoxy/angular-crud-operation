@@ -1,0 +1,49 @@
+<h1 mat-dialog-title>Edit User : {{data.lastName}} {{data.firstName}}</h1>
+
+<div mat-dialog-content [formGroup]="formInstance">
+  
+   
+      <mat-form-field >
+        <mat-label>First Name *</mat-label>
+        <input matInput type="text" 
+        name="lastName" formControlName="lastName">
+        <mat-error *ngIf="
+        formInstance.controls['lastName']?.errors?.required">field required</mat-error>
+      </mat-form-field>
+   
+
+    
+      <mat-form-field>
+        <mat-label>Last Name *</mat-label>
+        <input matInput type="text" name="firstName" formControlName="firstName" />
+        <mat-error *ngIf="
+        formInstance.controls['firstName']?.errors?.required">field required</mat-error>
+      </mat-form-field>
+    
+
+        <mat-form-field>
+          <mat-label>Address</mat-label>
+          <input matInput type="textarea" name="address" formControlName="address" />
+          <mat-error *ngIf="
+          formInstance.controls['address']?.errors?.required">field required</mat-error>
+        </mat-form-field>
+  
+ 
+        <mat-form-field >
+          <mat-label>Mobile No</mat-label>
+          <input matInput type="text" name="mobileNo" formControlName="mobileNo" />
+          <mat-error *ngIf="
+          formInstance.controls['mobileNo']?.errors?.required">field required</mat-error>
+        </mat-form-field>
+
+   
+  
+</div>
+
+<div class="mt-5" mat-dialog-actions>
+  <button mat-raised-button color="primary" 
+  [disabled]="formInstance.dirty && formInstance.errors" (click)="save()"
+    cdkFocusInitial>Yes</button>
+  <button mat-raised-button (click)="close()">No</button>
+
+</div> 
